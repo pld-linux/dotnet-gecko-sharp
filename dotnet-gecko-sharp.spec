@@ -13,7 +13,6 @@ URL:		http://www.mono-project.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dotnet-gtk-sharp-devel >= 0.98
-BuildRequires:	mono-devel >= 0.96
 BuildRequires:	mono-csharp >= 0.96
 BuildRequires:	pkgconfig
 BuildConflicts:	gecko-sharp < 0.2
