@@ -17,6 +17,7 @@ BuildRequires:	mono-devel >= 0.96
 BuildRequires:	mono-csharp >= 0.96
 BuildRequires:	pkgconfig
 BuildConflicts:	gecko-sharp < 0.2
+Requires:	mozilla-embedded
 Requires:	dotnet-gtk-sharp >= 0.98
 Provides:	dotnet-gecko
 Provides:	gecko-sharp = %{version}
@@ -35,6 +36,7 @@ Summary:	Gecko# development files
 Summary(pl):	Pliki programistyczne Gecko#
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	mozilla-embedded-devel
 Provides:	dotnet-gecko-devel
 Provides:	gecko-sharp-devel
 Obsoletes:	dotnet-gecko-devel
