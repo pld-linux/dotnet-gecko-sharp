@@ -1,0 +1,74 @@
+diff -Nuard gecko-sharp-0.5.orig/configure.in gecko-sharp-0.5/configure.in
+--- gecko-sharp-0.5.orig/configure.in	2004-06-14 23:42:35.000000000 +0200
++++ gecko-sharp-0.5/configure.in	2004-07-02 10:27:42.069003672 +0200
+@@ -14,11 +14,11 @@
+ fi
+ AC_MSG_RESULT($from_cvs)
+ 
+-AC_PATH_PROG(MONO, mono)
++dnl AC_PATH_PROG(MONO, mono)
+ AC_PATH_PROG(MCS, mcs)
+-if test "x$MONO" = "x" ; then
+-  AC_MSG_ERROR([Can't find "mono" in your PATH])
+-fi
++dnl if test "x$MONO" = "x" ; then
++dnl  AC_MSG_ERROR([Can't find "mono" in your PATH])
++dnl fi
+ if test "x$MCS" = "x" ; then
+   AC_MSG_ERROR([Can't find "mcs" in your PATH])
+ fi
+@@ -40,7 +40,26 @@
+ GTK_REQUIRED_VERSION=2.0.0
+ MONO_REQUIRED_VERSION=0.95
+ 
+-PKG_CHECK_MODULES(BASE_DEPENDENCIES, gtk+-2.0 >= $GTK_REQUIRED_VERSION gmodule-2.0 >= $GTK_REQUIRED_VERSION  mono >= $MONO_REQUIRED_VERSION) 
++PKG_CHECK_MODULES(BASE_DEPENDENCIES, gtk+-2.0 >= $GTK_REQUIRED_VERSION gmodule-2.0 >= $GTK_REQUIRED_VERSION) 
++
++PKG_CHECK_MODULES(BASE_DEPENDENCIES_RUNTIME, mono >= $MONO_REQUIRED_VERSION, has_mono=true, has_mono=false)
++PKG_CHECK_MODULES(BASE_DEPENDENCIES_RUNTIME, mint >= $MONO_REQUIRED_VERSION, has_mint=true, has_mint=false)
++
++if test "x$has_mono" = "xtrue"; then
++    echo "using mono"
++    RUNTIME="mono --debug"
++else
++    if test "x$has_mint" = "xtrue"; then
++        echo "using mint"
++	RUNTIME="mint"
++    else
++	AC_MSG_ERROR([Unable to find mono or mint packages]);
++    fi
++fi
++AC_SUBST(RUNTIME)
++
++BASE_DEPENDENCIES_CFLAGS="$BASE_DEPENDENCIES_CFLAGS $BASE_DEPENDENCIES_RUNTIME_CFLAGS"
++BASE_DEPENDENCIES_LIBS="$BASE_DEPENDENCIES_LIBS $BASE_DEPENDENCIES_RUNTIME_LIBS"
+ 
+ AC_SUBST(BASE_DEPENDENCIES_CFLAGS)
+ AC_SUBST(BASE_DEPENDENCIES_LIBS)
+diff -Nuard gecko-sharp-0.5.orig/gecko-sharp.pc.in gecko-sharp-0.5/gecko-sharp.pc.in
+--- gecko-sharp-0.5.orig/gecko-sharp.pc.in	2004-06-16 06:28:07.000000000 +0200
++++ gecko-sharp-0.5/gecko-sharp.pc.in	2004-07-02 10:28:00.600186504 +0200
+@@ -1,6 +1,6 @@
+ prefix=@prefix@
+ exec_prefix=${prefix}
+-libdir=${exec_prefix}/lib
++libdir=@libdir@
+ 
+ Name: Gecko#
+ Description: Gecko# - A Gtk# Mozilla binding
+diff -Nuard gecko-sharp-0.5.orig/gtkmozembed/Makefile.am gecko-sharp-0.5/gtkmozembed/Makefile.am
+--- gecko-sharp-0.5.orig/gtkmozembed/Makefile.am	2004-06-14 18:50:51.000000000 +0200
++++ gecko-sharp-0.5/gtkmozembed/Makefile.am	2004-07-02 10:28:49.293783952 +0200
+@@ -31,10 +31,10 @@
+ $(API): $(srcdir)/$(RAW_API) $(srcdir)/$(METADATA)
+ 	cp $(srcdir)/$(RAW_API) $(API)
+ 	chmod u+w $(API)
+-	mono $(GTKSHARP_PREFIX)/bin/gapi-fixup.exe --api=$(srcdir)/$(API) --metadata=$(srcdir)/$(METADATA)
++	$(RUNTIME) $(GTKSHARP_PREFIX)/bin/gapi-fixup.exe --api=$(srcdir)/$(API) --metadata=$(srcdir)/$(METADATA)
+ 
+ generated-stamp: $(API)
+-	 mono $(GTKSHARP_PREFIX)/bin/gapi_codegen.exe --generate $(srcdir)/$(API) --include $(INCLUDE_APIS) --outdir=generated --customdir=$(srcdir) --assembly-name=gecko-sharp && touch generated-stamp
++	 $(RUNTIME) $(GTKSHARP_PREFIX)/bin/gapi_codegen.exe --generate $(srcdir)/$(API) --include $(INCLUDE_APIS) --outdir=generated --customdir=$(srcdir) --assembly-name=gecko-sharp && touch generated-stamp
+ 
+ gecko-sharp.snk: $(top_srcdir)/gecko-sharp.snk
+ 	cp $(top_srcdir)/gecko-sharp.snk .
