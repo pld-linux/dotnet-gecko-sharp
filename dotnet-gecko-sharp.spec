@@ -1,13 +1,13 @@
 Summary:	Gecko# - A Gtk# Mozilla binding
 Summary(pl):	Gecko# - wi±zanie Gtk# dla Mozilli
-Name:		dotnet-gecko
-Version:	0.2
-Release:	0.1
+Name:		dotnet-gecko-sharp
+Version:	0.4
+Release:	1
 Epoch:		0
 License:	GPL
 Group:		Libraries
-Source0:	http://www.go-mono.com/archive/gecko-sharp-%{version}.tar.gz
-# Source0-md5:	5cd00d838e82622b6a5392986c5c5b7b
+Source0:	http://www.go-mono.com/archive/beta2/gecko-sharp-%{version}.tar.gz
+# Source0-md5:	d3d07b7b68713c3fb63a6b9426bd35c3
 URL:		http://www.go-mono.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -15,6 +15,8 @@ BuildRequires:	mono
 BuildConflicts:	gecko-sharp < 0.2
 Provides:	gecko-sharp = %{version}
 Obsoletes:	gecko-sharp
+Provides:	dotnet-gecko
+Obsoletes:	dotnet-gecko
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,6 +31,8 @@ Summary(pl):	Pliki programistyczne Gecko#
 Group:		Development/Libraries
 Provides:	gecko-sharp-devel
 Obsoletes:	gecko-sharp-devel
+Provides:	dotnet-gecko-devel
+Obsoletes:	dotnet-gecko-devel
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description devel
@@ -64,4 +68,4 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_pkgconfigdir}/*
-%{_libdir}/mono/gecko-sharp
+%{_libdir}/mono/gtk-sharp/gecko-sharp.dll
