@@ -11,12 +11,16 @@ Source0:	http://www.go-mono.com/archive/beta3/gecko-sharp-%{version}.tar.gz
 URL:		http://www.go-mono.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	mono
+BuildRequires:	dotnet-gtk-sharp-devel = 0.98
+BuildRequires:	mono-devel >= 0.96
+BuildRequires:	mono-csharp >= 0.96
+BuildRequires:	pkgconfig
 BuildConflicts:	gecko-sharp < 0.2
-Provides:	gecko-sharp = %{version}
-Obsoletes:	gecko-sharp
+Requires:	dotnet-gtk-sharp >= 0.98
 Provides:	dotnet-gecko
+Provides:	gecko-sharp = %{version}
 Obsoletes:	dotnet-gecko
+Obsoletes:	gecko-sharp
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,11 +33,11 @@ Gecko# - wi±zanie Gtk# dla Mozilli.
 Summary:	Gecko# development files
 Summary(pl):	Pliki programistyczne Gecko#
 Group:		Development/Libraries
-Provides:	gecko-sharp-devel
-Obsoletes:	gecko-sharp-devel
-Provides:	dotnet-gecko-devel
-Obsoletes:	dotnet-gecko-devel
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Provides:	dotnet-gecko-devel
+Provides:	gecko-sharp-devel
+Obsoletes:	dotnet-gecko-devel
+Obsoletes:	gecko-sharp-devel
 
 %description devel
 Gecko# development files.
@@ -64,10 +68,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root)%{_bindir}/webshot
-%{_libdir}/gecko-sharp/WebThumbnailer.exe
+%{_libdir}/gecko-sharp
 %{_libdir}/mono/gac/gecko-sharp
 
 %files devel
 %defattr(644,root,root,755)
 %{_pkgconfigdir}/*
-%{_libdir}/mono/gecko-sharp/gecko-sharp.dll
+%{_libdir}/mono/gecko-sharp
