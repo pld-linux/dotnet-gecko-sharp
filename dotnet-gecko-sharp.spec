@@ -1,5 +1,5 @@
-Summary:	gecko-sharp
-Summary(pl):	gecko-sharp
+Summary:	Gecko# - A Gtk# Mozilla binding
+Summary(pl):	Gecko# - wi±zanie Gtk# dla Mozilli
 Name:		gecko-sharp
 Version:	0.1
 Release:	0.1
@@ -15,22 +15,22 @@ BuildRequires:	mono
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-gecko-sharp.
+Gecko# - A Gtk# Mozilla binding.
 
 %description -l pl
-gecko-sharp.
+Gecko# - wi±zanie Gtk# dla Mozilli.
 
 %package devel
-Summary:	gecko-sharp devel
-Summary(pl):	gecko-sharp devel
+Summary:	Gecko# development files
+Summary(pl):	Pliki programistyczne Gecko#
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description devel
-gecko-sharp devel.
+Gecko# development files.
 
 %description devel -l pl
-gecko-sharp devel.
+Pliki programistyczne Gecko#.
 
 %prep
 %setup -q
