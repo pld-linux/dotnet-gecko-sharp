@@ -7,6 +7,7 @@ Epoch:		0
 License:	GPL
 Group:		Libraries
 Source0:	http://www.go-mono.com/archive/%{name}-%{version}.tar.gz
+# Source0-md5:	f6994a76d090bc6e7a484f5af42a6745
 URL:		http://www.go-mono.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
