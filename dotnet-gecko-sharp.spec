@@ -2,7 +2,7 @@ Summary:	Gecko# - A Gtk# Mozilla binding
 Summary(pl):	Gecko# - wi±zanie Gtk# dla Mozilli
 Name:		dotnet-gecko-sharp
 Version:	0.5
-Release:	2
+Release:	3
 Epoch:		0
 License:	GPL
 Group:		Libraries
@@ -22,6 +22,7 @@ Provides:	dotnet-gecko
 Provides:	gecko-sharp = %{version}
 Obsoletes:	dotnet-gecko
 Obsoletes:	gecko-sharp
+ExcludeArch:	alpha
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
