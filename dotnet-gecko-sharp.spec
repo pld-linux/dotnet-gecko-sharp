@@ -8,10 +8,10 @@ License:	GPL
 Group:		Libraries
 Source0:	http://www.go-mono.com/archive/beta3/gecko-sharp-%{version}.tar.gz
 # Source0-md5:	71e75186b2ee5c644d5dd1560ce27357
-URL:		http://www.go-mono.com/
+URL:		http://www.mono-project.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dotnet-gtk-sharp-devel = 0.98
+BuildRequires:	dotnet-gtk-sharp-devel >= 0.98
 BuildRequires:	mono-devel >= 0.96
 BuildRequires:	mono-csharp >= 0.96
 BuildRequires:	pkgconfig
