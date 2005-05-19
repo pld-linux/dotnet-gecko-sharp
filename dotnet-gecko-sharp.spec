@@ -1,14 +1,14 @@
 Summary:	Gecko# - A Gtk# Mozilla binding
 Summary(pl):	Gecko# - wi±zanie Gtk# dla Mozilli
 Name:		dotnet-gecko-sharp
-Version:	0.7
+Version:	0.10
 Release:	0.1
 Epoch:		0
 License:	GPL
 Group:		Libraries
-Source0:	http://www.go-mono.com/archive/1.1.5/gecko-sharp-%{version}.tar.gz
-# Source0-md5:	316ccf9f11a23248ec3d97cb7bd61cc1
-Patch0:		%{name}-gtk-compat.patch
+Source0:	http://go-mono.com/sources/gecko-sharp-2.0/gecko-sharp-2.0-%{version}.tar.gz
+# Source0-md5:	7318f788ce157ef402bfef3a1a9cc7f9
+#Patch0:		%{name}-gtk-compat.patch
 URL:		http://www.mono-project.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -50,7 +50,7 @@ Pliki programistyczne Gecko#.
 
 %prep
 %setup -q -n gecko-sharp-2.0-%{version}
-%patch0 -p1
+#%patch0 -p1
 
 %build
 %{__aclocal}
@@ -75,8 +75,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root)%{_bindir}/webshot
-%{_libdir}/gecko-sharp
+#%attr(755,root,root)%{_bindir}/webshot
+#%{_libdir}/gecko-sharp
 %{_libdir}/mono/gac/gecko-sharp
 
 %files devel
