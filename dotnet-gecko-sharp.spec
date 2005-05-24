@@ -69,6 +69,13 @@ if ! pkg-config --exists mono; then
 	sed -i -e 's/exec mono/exec mint/' $RPM_BUILD_ROOT%{_bindir}/webshot
 fi
 
+if test -f $RPM_BUILD_ROOT%{_pkgconfigdir} ; then
+  :
+else
+  install -d $RPM_BUILD_ROOT%{_pkgconfigdir}
+  mv $RPM_BUILD_ROOT/usr/lib/pkgconfig/* $RPM_BUILD_ROOT%{_pkgconfigdir}
+fi
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -77,9 +84,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 #%attr(755,root,root)%{_bindir}/webshot
 #%{_libdir}/gecko-sharp
-%{_libdir}/mono/gac/gecko-sharp
+/usr/lib/mono/gac/gecko-sharp
 
 %files devel
 %defattr(644,root,root,755)
 %{_pkgconfigdir}/*
-%{_libdir}/mono/gecko-sharp-2.0
+/usr/lib/mono/gecko-sharp-2.0
