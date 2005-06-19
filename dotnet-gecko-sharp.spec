@@ -73,7 +73,9 @@ if test -f $RPM_BUILD_ROOT%{_pkgconfigdir} ; then
   :
 else
   install -d $RPM_BUILD_ROOT%{_pkgconfigdir}
-  mv $RPM_BUILD_ROOT/usr/lib/pkgconfig/* $RPM_BUILD_ROOT%{_pkgconfigdir}
+  if [ "%{_pkgconfigdir}" != "/usr/lib/pkgconfig" ]; then
+  	mv $RPM_BUILD_ROOT/usr/lib/pkgconfig/* $RPM_BUILD_ROOT%{_pkgconfigdir}
+  fi
 fi
 
 %clean
