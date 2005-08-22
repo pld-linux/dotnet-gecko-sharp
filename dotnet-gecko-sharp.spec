@@ -1,3 +1,4 @@
+%include	/usr/lib/rpm/macros.mono
 Summary:	Gecko# - A Gtk# Mozilla binding
 Summary(pl):	Gecko# - wi±zanie Gtk# dla Mozilli
 Name:		dotnet-gecko-sharp
@@ -12,14 +13,13 @@ Source0:	http://go-mono.com/sources/gecko-sharp-2.0/gecko-sharp-2.0-%{version}.t
 URL:		http://www.mono-project.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dotnet-gtk-sharp-devel >= 1.9.3
+BuildRequires:	dotnet-gtk-sharp2-devel >= 1.9.3
 BuildRequires:	mono-csharp >= 1.1.0
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildConflicts:	gecko-sharp < 0.2
 Requires:	mozilla-embedded
-Requires:	dotnet-gtk-sharp >= 1.9.3
 Provides:	dotnet-gecko
 Provides:	gecko-sharp = %{version}
 Obsoletes:	dotnet-gecko
@@ -91,4 +91,5 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_pkgconfigdir}/*
+%{_libdir}/monodoc/sources/*
 /usr/lib/mono/gecko-sharp-2.0
