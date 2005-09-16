@@ -22,10 +22,6 @@ BuildRequires:	sed >= 4.0
 BuildConflicts:	gecko-sharp < 0.2
 Requires:	mozilla-embedded
 Requires:	dotnet-gtk-sharp >= 0.98
-Provides:	dotnet-gecko
-Provides:	gecko-sharp = %{version}
-Obsoletes:	dotnet-gecko
-Obsoletes:	gecko-sharp
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,10 +35,6 @@ Summary:	Gecko# development files
 Summary(pl):	Pliki programistyczne Gecko#
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Provides:	dotnet-gecko-devel
-Provides:	gecko-sharp-devel
-Obsoletes:	dotnet-gecko-devel
-Obsoletes:	gecko-sharp-devel
 
 %description devel
 Gecko# development files.
