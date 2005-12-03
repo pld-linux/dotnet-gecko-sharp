@@ -1,0 +1,1 @@
+- exclude i386 alpha sparc sparc64 from build, rel.4
