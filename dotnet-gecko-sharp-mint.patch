@@ -45,17 +45,6 @@ diff -Nuard gecko-sharp-0.5.orig/configure.in gecko-sharp-0.5/configure.in
  
  AC_SUBST(BASE_DEPENDENCIES_CFLAGS)
  AC_SUBST(BASE_DEPENDENCIES_LIBS)
-diff -Nuard gecko-sharp-0.5.orig/gecko-sharp.pc.in gecko-sharp-0.5/gecko-sharp.pc.in
---- gecko-sharp-0.5.orig/gecko-sharp.pc.in	2004-06-16 06:28:07.000000000 +0200
-+++ gecko-sharp-0.5/gecko-sharp.pc.in	2004-07-02 10:28:00.600186504 +0200
-@@ -1,6 +1,6 @@
- prefix=@prefix@
- exec_prefix=${prefix}
--libdir=${exec_prefix}/lib
-+libdir=@libdir@
- 
- Name: Gecko#
- Description: Gecko# - A Gtk# Mozilla binding
 diff -Nuard gecko-sharp-0.5.orig/gtkmozembed/Makefile.am gecko-sharp-0.5/gtkmozembed/Makefile.am
 --- gecko-sharp-0.5.orig/gtkmozembed/Makefile.am	2004-06-14 18:50:51.000000000 +0200
 +++ gecko-sharp-0.5/gtkmozembed/Makefile.am	2004-07-02 10:28:49.293783952 +0200
