@@ -3,23 +3,25 @@ Summary:	Gecko# - A Gtk# Mozilla binding
 Summary(pl):	Gecko# - wi±zanie Gtk# dla Mozilli
 Name:		dotnet-gecko-sharp
 Version:	0.6
-Release:	4
+Release:	5
 Epoch:		0
 License:	GPL
 Group:		Libraries
 Source0:	http://www.go-mono.com/archive/1.0.6/gecko-sharp-%{version}.tar.gz
 # Source0-md5:	9ce9bb08125f7c7eecf8bd696a3345bd
 Patch0:		%{name}-mint.patch
+Patch1:		%{name}-monodir.patch
 URL:		http://www.mono-project.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
 # just gtk-sharp
 BuildRequires:	dotnet-gtk-sharp-devel >= 0.98
 BuildRequires:	gtk+2-devel >= 2.0.0
-BuildRequires:	mono-csharp >= 0.96
+BuildRequires:	mono-csharp >= 1.1.7
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildConflicts:	gecko-sharp < 0.2
+Requires:	mono >= 1.1.7
 Requires:	mozilla-embedded
 Requires:	dotnet-gtk-sharp >= 0.98
 ExcludeArch:	i386 alpha sparc sparc64
@@ -46,6 +48,7 @@ Pliki programistyczne Gecko#.
 %prep
 %setup -q -n gecko-sharp-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal}
@@ -72,9 +75,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root)%{_bindir}/webshot
 %{_libdir}/gecko-sharp
-%{_libdir}/mono/gac/gecko-sharp
+%{_prefix}/lib/mono/gac/gecko-sharp
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/mono/gecko-sharp
+%{_prefix}/lib/mono/gecko-sharp
 %{_pkgconfigdir}/gecko-sharp.pc
