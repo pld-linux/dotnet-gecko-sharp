@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.mono
 Summary:	Gecko# - A Gtk# Mozilla binding
-Summary(pl):	Gecko# - wi±zanie Gtk# dla Mozilli
+Summary(pl.UTF-8):   Gecko# - wiÄ…zanie Gtk# dla Mozilli
 Name:		dotnet-gecko-sharp
 Version:	0.6
 Release:	7
@@ -29,19 +29,19 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Gecko# - A Gtk# Mozilla binding.
 
-%description -l pl
-Gecko# - wi±zanie Gtk# dla Mozilli.
+%description -l pl.UTF-8
+Gecko# - wiÄ…zanie Gtk# dla Mozilli.
 
 %package devel
 Summary:	Gecko# development files
-Summary(pl):	Pliki programistyczne Gecko#
+Summary(pl.UTF-8):   Pliki programistyczne Gecko#
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description devel
 Gecko# development files.
 
-%description devel -l pl
+%description devel -l pl.UTF-8
 Pliki programistyczne Gecko#.
 
 %prep
