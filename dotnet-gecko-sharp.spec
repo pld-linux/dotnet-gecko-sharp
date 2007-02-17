@@ -3,7 +3,7 @@ Summary:	Gecko# - A Gtk# Mozilla binding
 Summary(pl.UTF-8):	Gecko# - wiązanie Gtk# dla Mozilli
 Name:		dotnet-gecko-sharp
 Version:	0.6
-Release:	7
+Release:	8
 Epoch:		0
 License:	GPL
 Group:		Libraries
@@ -16,14 +16,14 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 # just gtk-sharp
 BuildRequires:	dotnet-gtk-sharp-devel >= 0.98
-BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	mono-csharp >= 1.1.7
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildConflicts:	gecko-sharp < 0.2
 Requires:	mono >= 1.1.7
 Requires:	dotnet-gtk-sharp >= 0.98
-ExcludeArch:	i386 alpha sparc sparc64
+ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
