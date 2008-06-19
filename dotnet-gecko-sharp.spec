@@ -7,7 +7,7 @@ Release:	8
 Epoch:		0
 License:	GPL
 Group:		Libraries
-Source0:	http://www.go-mono.com/archive/1.0.6/gecko-sharp-%{version}.tar.gz
+Source0:	http://ftp.novell.com/pub/mono/sources/gecko-sharp/gecko-sharp-%{version}.tar.gz
 # Source0-md5:	9ce9bb08125f7c7eecf8bd696a3345bd
 Patch0:		%{name}-mint.patch
 Patch1:		%{name}-monodir.patch
