@@ -1,13 +1,13 @@
+# NOTE: libgtkembedmoz.so has been dropped since xulrunner 1.9
 %include	/usr/lib/rpm/macros.mono
 Summary:	Gecko# - A Gtk# Mozilla binding
 Summary(pl.UTF-8):	Gecko# - wiązanie Gtk# dla Mozilli
 Name:		dotnet-gecko-sharp
 Version:	0.6
 Release:	8
-Epoch:		0
 License:	GPL
 Group:		Libraries
-Source0:	http://ftp.novell.com/pub/mono/sources/gecko-sharp/gecko-sharp-%{version}.tar.gz
+Source0:	http://download.mono-project.com/sources/gecko-sharp/gecko-sharp-%{version}.tar.gz
 # Source0-md5:	9ce9bb08125f7c7eecf8bd696a3345bd
 Patch0:		%{name}-mint.patch
 Patch1:		%{name}-monodir.patch
@@ -41,7 +41,7 @@ Gecko# - wiązanie Gtk# dla Mozilli.
 Summary:	Gecko# development files
 Summary(pl.UTF-8):	Pliki programistyczne Gecko#
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Gecko# development files.
@@ -76,8 +76,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root)%{_bindir}/webshot
+%doc ChangeLog README
+%attr(755,root,root) %{_bindir}/webshot
 %{_libdir}/gecko-sharp
 %{_prefix}/lib/mono/gac/gecko-sharp
 
