@@ -1,5 +1,4 @@
 # NOTE: libgtkembedmoz.so has been dropped since xulrunner 1.9
-%include	/usr/lib/rpm/macros.mono
 Summary:	Gecko# - A Gtk# Mozilla binding
 Summary(pl.UTF-8):	Gecko# - wiązanie Gtk# dla Mozilli
 Name:		dotnet-gecko-sharp
